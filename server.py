@@ -305,5 +305,7 @@ def predict(req: PredictRequest):
     return base
 
 if __name__ == "__main__":
+    # Get port from environment variable (assigned by Render/Railway)
+    port = int(os.environ.get("PORT", 8000))
     # Run without the auto-reloader to avoid mid-request restarts
-    uvicorn.run("server:app", host="127.0.0.1", port=8000, reload=False)
+    uvicorn.run("server:app", host="0.0.0.0", port=port, reload=False)
