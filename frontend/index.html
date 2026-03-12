@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>AI Health Assistant</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css?v=2" />
+</head>
+
+<body>
+    <header class="glass-header">
+        <div class="brand">
+            <h1>AI Health Assistant</h1>
+            <div class="subtitle">Zero-shot disease prediction & nearby doctor finder</div>
+        </div>
+
+        <div class="controls">
+            <select id="langSelect" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="hi">हिन्दी</option>
+                <option value="mr">मराठी</option>
+            </select>
+            <button id="voiceBtn" class="voice-btn" onclick="toggleVoice()">Voice</button>
+            <button class="about-btn" onclick="showAbout()">About</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-image">
+                <img src="healthcare_hero.png" alt="Professional Healthcare">
+            </div>
+            <div class="hero-content">
+                <h2>AI-Powered Health Assistance</h2>
+                <p>Get instant symptom analysis and find nearby healthcare providers using advanced zero-shot AI
+                    technology.</p>
+                <div class="hero-features">
+                    <div class="feature">
+                        <span class="feature-icon">🔍</span>
+                        <h4>Smart Diagnosis</h4>
+                        <p>AI-powered symptom analysis</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">📍</span>
+                        <h4>Find Doctors</h4>
+                        <p>Locate nearby healthcare providers</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🌍</span>
+                        <h4>Multi-Language</h4>
+                        <p>Support in multiple languages</p>
+                    </div>
+                </div>
+                <div class="hero-links">
+                    <a href="#symptoms" class="hero-link-primary">Get Started →</a>
+                    <a href="#" onclick="showAbout(); return false;" class="hero-link-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container glass-box" id="symptoms">
+        <label id="symLabel">Describe your symptoms here…</label>
+        <textarea id="symptomsText" placeholder="e.g. fever and severe headache"></textarea>
+
+        <!-- Additional Medical Info -->
+        <div class="medical-info-grid">
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" placeholder="e.g. 35" min="1" max="120">
+            </div>
+            <div class="form-group">
+                <label for="severity">Severity</label>
+                <select id="severity">
+                    <option value="">Select severity</option>
+                    <option value="mild">Mild</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="severe">Severe</option>
+                    <option value="critical">Critical</option>
+                </select>
+            </div>
+            <div class="form-group full-width">
+                <label for="priorMeds">Prior Doctor / Medications (Optional)</label>
+                <input type="text" id="priorMeds" placeholder="Dr. X / Paracetamol">
+            </div>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn analyze" onclick="analyze()">Analyze</button>
+            <button class="btn alt" onclick="requestLocation()">Find Nearby Doctors</button>
+            <button class="btn triage" onclick="showTriageTable()">📋 Triage Table</button>
+        </div>
+
+        <div id="status" class="status"></div>
+
+        <div id="output"></div>
+
+        <section class="doctors-panel">
+            <h3 id="nearbyTitle">Nearby doctors (from OpenStreetMap)</h3>
+            <div id="doctorsList" class="doctors-list">
+                <p style="color:rgba(255,255,255,0.9);">Allow location then click "Find Nearby Doctors" to list results.
+                </p>
+            </div>
+        </section>
+
+        <div class="small-note">
+            Tip: Serving the frontend from `localhost` (or a local static server) is recommended — browser voice
+            recognition works on localhost. The doctor finder uses OpenStreetMap (free).
+        </div>
+    </main>
+
+    <!-- Triage Table Modal -->
+    <div id="triageModal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close" onclick="closeTriageTable()">&times;</span>
+            <h2>📋 Medical Triage Table</h2>
+            <p class="modal-subtitle">Please provide your previous medical visit details and upload relevant documents
+            </p>
+
+            <form id="triageForm" class="triage-form">
+                <div class="form-section">
+                    <h3>Previous Doctor Visit</h3>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="visitDate">Visit Date</label>
+                            <input type="date" id="visitDate">
+                        </div>
+                        <div class="form-field">
+                            <label for="doctorName">Doctor Name</label>
+                            <input type="text" id="doctorName" placeholder="Dr. Smith">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="specialty">Specialty</label>
+                            <input type="text" id="specialty" placeholder="Cardiologist, Neurologist, etc.">
+                        </div>
+                        <div class="form-field">
+                            <label for="diagnosis">Diagnosis Given</label>
+                            <input type="text" id="diagnosis" placeholder="Previous diagnosis">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Medications & Treatment</h3>
+                    <div class="form-field">
+                        <label for="medications">Prescribed Medications</label>
+                        <textarea id="medications" rows="3" placeholder="List all medications prescribed..."></textarea>
+                    </div>
+                    <div class="form-field">
+                        <label for="treatment">Treatment Details</label>
+                        <textarea id="treatment" rows="3" placeholder="Describe the treatment received..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Medical Documents Upload</h3>
+                    <div class="upload-area">
+                        <div class="upload-box">
+                            <label for="reportUpload" class="upload-label">
+                                <div class="upload-icon">📄</div>
+                                <div class="upload-text">Medical Reports (PDF)</div>
+                                <div class="upload-hint">Click to upload or drag and drop</div>
+                            </label>
+                            <input type="file" id="reportUpload" accept=".pdf" multiple style="display: none;">
+                            <div id="reportFiles" class="file-list"></div>
+                        </div>
+                        <div class="upload-box">
+                            <label for="prescriptionUpload" class="upload-label">
+                                <div class="upload-icon">💊</div>
+                                <div class="upload-text">Prescriptions</div>
+                                <div class="upload-hint">PDF, DOC, DOCX files</div>
+                            </label>
+                            <input type="file" id="prescriptionUpload" accept=".pdf,.doc,.docx" multiple
+                                style="display: none;">
+                            <div id="prescriptionFiles" class="file-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeTriageTable()">Cancel</button>
+                    <button type="button" class="btn-primary" onclick="saveTriageData()">Save Medical History</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- About Modal -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close" onclick="closeAbout()">&times;</span>
+            <div class="about-header">
+                <div class="about-icon">🩺</div>
+                <h2>Welcome to AI Health Assistant!</h2>
+                <p class="about-tagline">Your intelligent companion for health analysis and medical guidance</p>
+            </div>
+
+            <div class="about-features">
+                <div class="about-feature-card">
+                    <div class="feature-card-icon">🔍</div>
+                    <h3>Step 1: Describe Symptoms</h3>
+                    <p>Type or speak your symptoms in detail. For example: "fever and severe headache" or "persistent
+                        cough for 3 days". The more details you provide, the better our AI can assist you.</p>
+                </div>
+
+                <div class="about-feature-card">
+                    <div class="feature-card-icon">🎤</div>
+                    <h3>Step 2: Voice Input</h3>
+                    <p>Use voice recognition to describe your symptoms hands-free. Works best on localhost or secure
+                        connections. Available in English, हिन्दी, and मराठी.</p>
+                </div>
+
+                <div class="about-feature-card">
+                    <div class="feature-card-icon">🧠</div>
+                    <h3>Step 3: AI Analysis</h3>
+                    <p>Our advanced zero-shot learning AI analyzes your symptoms and provides possible conditions,
+                        recommended specialists, and suggested medical tests.</p>
+                </div>
+
+                <div class="about-feature-card">
+                    <div class="feature-card-icon">📋</div>
+                    <h3>Step 4: Medical History</h3>
+                    <p>Fill in your triage table with previous doctor visits, medications, and upload medical documents
+                        for comprehensive health tracking.</p>
+                </div>
+
+                <div class="about-feature-card">
+                    <div class="feature-card-icon">📍</div>
+                    <h3>Step 5: Find Doctors</h3>
+                    <p>Locate nearby clinics and hospitals using OpenStreetMap data. Get directions to recommended
+                        healthcare providers in your area.</p>
+                </div>
+
+                <div class="about-feature-card">
+                    <div class="feature-card-icon">🌍</div>
+                    <h3>Step 6: Multi-Language</h3>
+                    <p>Choose your preferred language from English, हिन्दी, or मराठी for a personalized experience.</p>
+                </div>
+            </div>
+
+            <div class="about-tech">
+                <h3>🚀 Powered By Advanced AI Technology</h3>
+                <div class="tech-badges">
+                    <span class="tech-badge">Zero-Shot Learning</span>
+                    <span class="tech-badge">Natural Language Processing</span>
+                    <span class="tech-badge">Voice Recognition</span>
+                    <span class="tech-badge">OpenStreetMap Integration</span>
+                </div>
+            </div>
+
+            <div class="about-disclaimer">
+                <div class="disclaimer-icon">⚠️</div>
+                <h4>Important Medical Disclaimer</h4>
+                <p><strong>This tool is for informational purposes only.</strong> It does not provide medical advice,
+                    diagnosis, or treatment. Always consult with a qualified healthcare professional for medical
+                    concerns. In case of emergency, call your local emergency services immediately.</p>
+            </div>
+
+            <div class="about-footer">
+                <button class="btn-primary" onclick="closeAbout()">Get Started →</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=4"></script>
+</body>
+
+</html>

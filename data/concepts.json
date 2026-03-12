@@ -1,0 +1,1160 @@
+[
+  {
+    "id": "S001",
+    "label": "fever",
+    "description": "Elevated body temperature, feeling hot or shivery.",
+    "synonyms": ["pyrexia", "high temperature", "bukhar", "kayi (Tamil)"],
+    "system": "general",
+    "specialists": ["general physician", "infectious disease specialist", "pediatrician"],
+    "recommended_tests": [
+      {"test": "Complete blood count (CBC)", "reason": "Check for leukocytosis, differential", "source": "local_guideline"},
+      {"test": "Blood culture", "reason": "Detect bacteremia/sepsis in persistent fever", "source": "clinical_guideline"},
+      {"test": "C-reactive protein (CRP)", "reason": "Marker of inflammation; helps triage infection vs non-infectious", "source": "clinical_review"},
+      {"test": "Malaria rapid diagnostic test (where endemic)", "reason": "Rule-out malaria in endemic areas", "source": "WHO/local_guideline"}
+    ]
+  },
+  {
+    "id": "S002",
+    "label": "cough",
+    "description": "Forceful expulsion of air from the lungs.",
+    "synonyms": ["khansi", "khasi", "irumal (Tamil)", "coughing"],
+    "system": "respiratory",
+    "specialists": ["pulmonologist", "general physician", "pediatrician"],
+    "recommended_tests": [
+      {"test": "Chest X-ray", "reason": "Evaluate for pneumonia, TB, or mass", "source": "clinical_guideline"},
+      {"test": "Sputum analysis", "reason": "Detect infection (bacterial, fungal, AFB)", "source": "local_guideline"},
+      {"test": "Complete blood count (CBC)", "reason": "Assess for infection or eosinophilia", "source": "clinical_review"}
+    ]
+  },
+  {
+    "id": "S003",
+    "label": "sore throat",
+    "description": "Pain or irritation in the throat.",
+    "synonyms": ["gale me dard", "throat pain", "tulai (Tamil)"],
+    "system": "ENT",
+    "specialists": ["ENT specialist", "general physician"],
+    "recommended_tests": [
+      {"test": "Throat swab for culture/strep test", "reason": "Rule out streptococcal pharyngitis", "source": "IDSA_guideline"},
+      {"test": "Rapid antigen detection test (RADT)", "reason": "Quick diagnosis of Group A Streptococcus", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S004",
+    "label": "headache",
+    "description": "Pain in the head or face.",
+    "synonyms": ["sar dard", "migraine", "talaivali (Tamil)"],
+    "system": "neurologic",
+    "specialists": ["neurologist", "general physician"],
+    "recommended_tests": [
+      {"test": "Fundoscopy", "reason": "Assess for papilledema (raised ICP)", "source": "clinical_guideline"},
+      {"test": "CT/MRI brain (if red flags)", "reason": "Rule out hemorrhage, tumor, or sinus thrombosis", "source": "AHS_guideline"}
+    ]
+  },
+  {
+    "id": "S005",
+    "label": "chest pain",
+    "description": "Pain, tightness, or pressure in the chest.",
+    "synonyms": ["angina", "chest tightness", "nenju vali (Tamil)", "dil ka dard"],
+    "system": "cardiac",
+    "specialists": ["cardiologist", "emergency physician"],
+    "recommended_tests": [
+      {"test": "ECG", "reason": "Detect ischemia, arrhythmia, or infarction", "source": "AHA_guideline"},
+      {"test": "Troponin I/T", "reason": "Marker of myocardial injury", "source": "ESC_guideline"},
+      {"test": "Chest X-ray", "reason": "Rule out pneumothorax, pneumonia, or aortic dissection", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S006",
+    "label": "shortness of breath",
+    "description": "Breathlessness or difficulty breathing.",
+    "synonyms": ["saans phoolna", "dyspnea", "mucchu tirppu (Tamil)"],
+    "system": "respiratory",
+    "specialists": ["pulmonologist", "cardiologist"],
+    "recommended_tests": [
+      {"test": "Pulse oximetry", "reason": "Assess oxygenation", "source": "BTS_guideline"},
+      {"test": "Chest X-ray", "reason": "Identify pulmonary edema, effusion, or consolidation", "source": "clinical_guideline"},
+      {"test": "BNP/NT-proBNP", "reason": "Differentiate cardiac vs respiratory cause", "source": "ESC_guideline"}
+    ]
+  },
+  {
+    "id": "S007",
+    "label": "abdominal pain",
+    "description": "Pain in the stomach or belly area.",
+    "synonyms": ["pet dard", "pait dard", "vayiru vali (Tamil)", "stomach ache"],
+    "system": "GI",
+    "specialists": ["gastroenterologist", "general surgeon"],
+    "recommended_tests": [
+      {"test": "Abdominal ultrasound", "reason": "Evaluate liver, gallbladder, kidneys, appendix", "source": "local_guideline"},
+      {"test": "Complete blood count (CBC)", "reason": "Check for infection or anemia", "source": "clinical_review"},
+      {"test": "Amylase/Lipase", "reason": "Rule out pancreatitis", "source": "AGA_guideline"}
+    ]
+  },
+  {
+    "id": "S008",
+    "label": "nausea",
+    "description": "Feeling of wanting to vomit.",
+    "synonyms": ["matli", "kumaattal (Tamil)"],
+    "system": "GI",
+    "specialists": ["gastroenterologist", "general physician"],
+    "recommended_tests": [
+      {"test": "Liver function tests (LFT)", "reason": "Assess for hepatitis or obstruction", "source": "clinical_guideline"},
+      {"test": "Electrolytes", "reason": "Detect dehydration or metabolic cause", "source": "local_guideline"}
+    ]
+  },
+  {
+    "id": "S009",
+    "label": "vomiting",
+    "description": "Forceful emptying of stomach contents.",
+    "synonyms": ["ulti", "ultee", "vamippu (Tamil)", "emesis"],
+    "system": "GI",
+    "specialists": ["gastroenterologist", "pediatrician"],
+    "recommended_tests": [
+      {"test": "Electrolytes, BUN, Creatinine", "reason": "Assess dehydration and renal function", "source": "clinical_guideline"},
+      {"test": "Abdominal X-ray", "reason": "Rule out obstruction or ileus", "source": "local_guideline"}
+    ]
+  },
+  {
+    "id": "S010",
+    "label": "diarrhea",
+    "description": "Loose or watery stools.",
+    "synonyms": ["dast", "loose motion", "bedhi (Tamil)"],
+    "system": "GI",
+    "specialists": ["gastroenterologist", "infectious disease specialist"],
+    "recommended_tests": [
+      {"test": "Stool routine & microscopy", "reason": "Detect ova, cysts, parasites, pus cells", "source": "WHO_guideline"},
+      {"test": "Stool culture", "reason": "Identify bacterial pathogens", "source": "IDSA_guideline"},
+      {"test": "Electrolytes", "reason": "Monitor for dehydration", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S011",
+    "label": "fatigue",
+    "description": "Extreme tiredness or lack of energy.",
+    "synonyms": ["thakan", "susthi (Tamil)", "tiredness"],
+    "system": "general",
+    "specialists": ["general physician", "endocrinologist", "hematologist"],
+    "recommended_tests": [
+      {"test": "Complete blood count (CBC)", "reason": "Rule out anemia", "source": "clinical_guideline"},
+      {"test": "Thyroid function test (TSH)", "reason": "Detect hypothyroidism", "source": "ATA_guideline"},
+      {"test": "Vitamin B12 & Folate", "reason": "Assess for deficiency", "source": "local_guideline"}
+    ]
+  },
+  {
+    "id": "S012",
+    "label": "joint pain",
+    "description": "Pain or stiffness in the joints.",
+    "synonyms": ["jodon ka dard", "knee pain", "mootu vali (Tamil)", "arthralgia"],
+    "system": "musculoskeletal",
+    "specialists": ["rheumatologist", "orthopedic surgeon"],
+    "recommended_tests": [
+      {"test": "ESR/CRP", "reason": "Assess inflammation", "source": "EULAR_guideline"},
+      {"test": "Rheumatoid factor / Anti-CCP", "reason": "Screen for rheumatoid arthritis", "source": "ACR_guideline"},
+      {"test": "X-ray joints", "reason": "Evaluate for osteoarthritis or erosions", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S013",
+    "label": "muscle pain",
+    "description": "Aching or soreness in the muscles.",
+    "synonyms": ["muscle ache", "badan dard", "thasai vali (Tamil)"],
+    "system": "musculoskeletal",
+    "specialists": ["rheumatologist", "neurologist"],
+    "recommended_tests": [
+      {"test": "Creatine kinase (CK)", "reason": "Detect muscle damage (myositis)", "source": "clinical_guideline"},
+      {"test": "Electrolytes (Mg, K, Ca)", "reason": "Rule out electrolyte imbalance", "source": "local_guideline"}
+    ]
+  },
+  {
+    "id": "S014",
+    "label": "dizziness",
+    "description": "Feeling lightheaded or unsteady.",
+    "synonyms": ["dizzy", "chakkar", "mayakkam (Tamil)", "vertigo"],
+    "system": "neurologic",
+    "specialists": ["neurologist", "ENT specialist"],
+    "recommended_tests": [
+      {"test": "Dix-Hallpike maneuver", "reason": "Diagnose BPPV", "source": "clinical_guideline"},
+      {"test": "Orthostatic BP", "reason": "Assess for postural hypotension", "source": "AHA_guideline"}
+    ]
+  },
+  {
+    "id": "S015",
+    "label": "rash",
+    "description": "Red, itchy, or irritated skin.",
+    "synonyms": ["daane", "charm rog", "tovai (Tamil)", "skin rash"],
+    "system": "dermatologic",
+    "specialists": ["dermatologist", "allergist"],
+    "recommended_tests": [
+      {"test": "Skin scraping for KOH", "reason": "Rule out fungal infection", "source": "clinical_guideline"},
+      {"test": "Complete blood count (eosinophil count)", "reason": "Assess for allergic cause", "source": "local_guideline"}
+    ]
+  },
+  {
+    "id": "S016",
+    "label": "itching",
+    "description": "Uncomfortable sensation causing a desire to scratch.",
+    "synonyms": ["khujli", "arippu (Tamil)"],
+    "system": "dermatologic",
+    "specialists": ["dermatologist", "allergist"],
+    "recommended_tests": [
+      {"test": "Liver function tests", "reason": "Rule out cholestasis", "source": "clinical_guideline"},
+      {"test": "Serum IgE", "reason": "Assess for atopy", "source": "local_guideline"}
+    ]
+  },
+  {
+    "id": "S017",
+    "label": "back pain",
+    "description": "Pain in the lower or upper back.",
+    "synonyms": ["kamar dard", "muthugu vali (Tamil)", "backache"],
+    "system": "musculoskeletal",
+    "specialists": ["orthopedic surgeon", "rheumatologist"],
+    "recommended_tests": [
+      {"test": "X-ray spine", "reason": "Assess for fracture or spondylosis", "source": "clinical_guideline"},
+      {"test": "MRI spine (if red flags)", "reason": "Rule out disc prolapse or malignancy", "source": "NICE_guideline"}
+    ]
+  },
+  {
+    "id": "S018",
+    "label": "palpitations",
+    "description": "Rapid or irregular heartbeat sensation.",
+    "synonyms": ["dil ki dharkan", "idaya tudippu (Tamil)"],
+    "system": "cardiac",
+    "specialists": ["cardiologist"],
+    "recommended_tests": [
+      {"test": "ECG", "reason": "Detect arrhythmia", "source": "AHA_guideline"},
+      {"test": "Holter monitoring", "reason": "Capture paroxysmal events", "source": "ESC_guideline"},
+      {"test": "Thyroid function test", "reason": "Rule out hyperthyroidism", "source": "ATA_guideline"}
+    ]
+  },
+  {
+    "id": "S019",
+    "label": "swelling",
+    "description": "Abnormal enlargement of a body part.",
+    "synonyms": ["soojan", "veekkam (Tamil)", "edema"],
+    "system": "general",
+    "specialists": ["general physician", "cardiologist", "nephrologist"],
+    "recommended_tests": [
+      {"test": "Urine routine", "reason": "Detect proteinuria (nephrotic syndrome)", "source": "KDIGO_guideline"},
+      {"test": "Serum albumin", "reason": "Assess for hypoalbuminemia", "source": "clinical_guideline"},
+      {"test": "Echocardiogram", "reason": "Rule out heart failure", "source": "ESC_guideline"}
+    ]
+  },
+  {
+    "id": "S020",
+    "label": "constipation",
+    "description": "Difficulty in passing stools.",
+    "synonyms": ["kabz", "malaccikkal (Tamil)"],
+    "system": "GI",
+    "specialists": ["gastroenterologist"],
+    "recommended_tests": [
+      {"test": "Thyroid function test", "reason": "Rule out hypothyroidism", "source": "ATA_guideline"},
+      {"test": "Serum calcium", "reason": "Detect hypercalcemia", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S021",
+    "label": "heartburn",
+    "description": "Burning sensation in the chest or throat.",
+    "synonyms": ["jalan", "nenju erichal (Tamil)", "acid reflux"],
+    "system": "GI",
+    "specialists": ["gastroenterologist"],
+    "recommended_tests": [
+      {"test": "Upper GI endoscopy", "reason": "Assess for esophagitis, Barrett’s, or ulcer", "source": "AGA_guideline"},
+      {"test": "H. pylori test", "reason": "Detect infection", "source": "Maastricht_guideline"}
+    ]
+  },
+  {
+    "id": "S022",
+    "label": "blurred vision",
+    "description": "Loss of sharpness in eyesight.",
+    "synonyms": ["dhundhla pan", "parvai manju (Tamil)", "vision blur"],
+    "system": "ophthalmic",
+    "specialists": ["ophthalmologist"],
+    "recommended_tests": [
+      {"test": "Blood glucose (fasting & HbA1c)", "reason": "Rule out diabetes", "source": "ADA_guideline"},
+      {"test": "Fundoscopy", "reason": "Assess for retinopathy or papilledema", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S023",
+    "label": "earache",
+    "description": "Pain in the ear.",
+    "synonyms": ["kaan dard", "kathu vali (Tamil)"],
+    "system": "ENT",
+    "specialists": ["ENT specialist"],
+    "recommended_tests": [
+      {"test": "Otoscopy", "reason": "Visualize tympanic membrane", "source": "clinical_guideline"},
+      {"test": "Tuning fork tests", "reason": "Differentiate conductive vs sensorineural loss", "source": "local_guideline"}
+    ]
+  },
+  {
+    "id": "S024",
+    "label": "nasal congestion",
+    "description": "Blocked or stuffy nose.",
+    "synonyms": ["naak band", "mooku adappu (Tamil)", "stuffy nose"],
+    "system": "respiratory",
+    "specialists": ["ENT specialist", "allergist"],
+    "recommended_tests": [
+      {"test": "Nasal endoscopy", "reason": "Assess for polyps or deviation", "source": "clinical_guideline"},
+      {"test": "Skin prick test", "reason": "Identify allergens", "source": "ARIA_guideline"}
+    ]
+  },
+  {
+    "id": "S025",
+    "label": "wheezing",
+    "description": "High-pitched breathing sound.",
+    "synonyms": ["saans ka ghargharana", "kural kathal (Tamil)"],
+    "system": "respiratory",
+    "specialists": ["pulmonologist", "allergist"],
+    "recommended_tests": [
+      {"test": "Spirometry", "reason": "Confirm obstructive pattern", "source": "GOLD_guideline"},
+      {"test": "Peak flow meter", "reason": "Monitor asthma control", "source": "GINA_guideline"},
+      {"test": "Chest X-ray", "reason": "Rule out infection or cardiac cause", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S026",
+    "label": "loss of appetite",
+    "description": "Reduced desire to eat.",
+    "synonyms": ["bhukh na lagna", "pasi illai (Tamil)", "anorexia"],
+    "system": "general",
+    "specialists": ["general physician", "gastroenterologist"],
+    "recommended_tests": [
+      {"test": "Liver function tests", "reason": "Rule out liver disease", "source": "clinical_guideline"},
+      {"test": "Complete blood count", "reason": "Detect anemia or infection", "source": "local_guideline"}
+    ]
+  },
+  {
+    "id": "S027",
+    "label": "weight loss",
+    "description": "Unintentional reduction in body weight.",
+    "synonyms": ["vajan ghatna", "udambu kurai (Tamil)"],
+    "system": "general",
+    "specialists": ["endocrinologist", "oncologist"],
+    "recommended_tests": [
+      {"test": "Thyroid function test", "reason": "Rule out hyperthyroidism", "source": "ATA_guideline"},
+      {"test": "Chest X-ray", "reason": "Screen for TB or malignancy", "source": "WHO_guideline"},
+      {"test": "HbA1c", "reason": "Detect uncontrolled diabetes", "source": "ADA_guideline"}
+    ]
+  },
+  {
+    "id": "S028",
+    "label": "weight gain",
+    "description": "Unintentional increase in body weight.",
+    "synonyms": ["vajan badhna", "udambu adhikam (Tamil)"],
+    "system": "general",
+    "specialists": ["endocrinologist", "nutritionist"],
+    "recommended_tests": [
+      {"test": "Thyroid function test", "reason": "Rule out hypothyroidism", "source": "ATA_guideline"},
+      {"test": "Cortisol (morning)", "reason": "Screen for Cushing’s", "source": "Endocrine_guideline"}
+    ]
+  },
+  {
+    "id": "S029",
+    "label": "insomnia",
+    "description": "Difficulty falling or staying asleep.",
+    "synonyms": ["nind na aana", "tukkam illai (Tamil)", "sleeplessness"],
+    "system": "neurologic",
+    "specialists": ["psychiatrist", "neurologist"],
+    "recommended_tests": [
+      {"test": "Thyroid function test", "reason": "Rule out hyperthyroidism", "source": "ATA_guideline"},
+      {"test": "Sleep study (if OSA suspected)", "reason": "Diagnose sleep apnea", "source": "AASM_guideline"}
+    ]
+  },
+  {
+    "id": "S030",
+    "label": "anxiety",
+    "description": "Feeling of unease or nervousness.",
+    "synonyms": ["chinta", "kavalai (Tamil)", "nervousness"],
+    "system": "mental health",
+    "specialists": ["psychiatrist", "clinical psychologist"],
+    "recommended_tests": [
+      {"test": "Thyroid function test", "reason": "Rule out hyperthyroidism", "source": "ATA_guideline"},
+      {"test": "ECG", "reason": "Exclude cardiac cause of symptoms", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S031",
+    "label": "depression",
+    "description": "Persistent sadness or low mood.",
+    "synonyms": ["udasita", "manathazhvu (Tamil)", "sadness"],
+    "system": "mental health",
+    "specialists": ["psychiatrist"],
+    "recommended_tests": [
+      {"test": "Thyroid function test", "reason": "Rule out hypothyroidism", "source": "ATA_guideline"},
+      {"test": "Vitamin B12 & D", "reason": "Assess deficiency-related mood changes", "source": "clinical_review"}
+    ]
+  },
+  {
+    "id": "S033",
+    "label": "numbness",
+    "description": "Loss of sensation in a body part.",
+    "synonyms": ["sunn hona", "unarvu izhappu (Tamil)", "paresthesia"],
+    "system": "neurologic",
+    "specialists": ["neurologist"],
+    "recommended_tests": [
+      {"test": "Nerve conduction study", "reason": "Diagnose peripheral neuropathy", "source": "AAN_guideline"},
+      {"test": "Blood glucose/HbA1c", "reason": "Rule out diabetes", "source": "ADA_guideline"},
+      {"test": "Vitamin B12", "reason": "Detect deficiency", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S034",
+    "label": "tremors",
+    "description": "Involuntary shaking or trembling.",
+    "synonyms": ["kampan", "nadukam (Tamil)", "shaking"],
+    "system": "neurologic",
+    "specialists": ["neurologist"],
+    "recommended_tests": [
+      {"test": "Thyroid function test", "reason": "Rule out hyperthyroidism", "source": "ATA_guideline"},
+      {"test": "MRI brain", "reason": "Assess for Parkinson’s or cerebellar lesion", "source": "AAN_guideline"}
+    ]
+  },
+  {
+    "id": "S035",
+    "label": "sweating",
+    "description": "Excessive perspiration.",
+    "synonyms": ["pasina", "viyarvai (Tamil)", "hyperhidrosis"],
+    "system": "general",
+    "specialists": ["endocrinologist", "dermatologist"],
+    "recommended_tests": [
+      {"test": "Blood glucose", "reason": "Rule out hypoglycemia", "source": "ADA_guideline"},
+      {"test": "Thyroid function test", "reason": "Detect hyperthyroidism", "source": "ATA_guideline"}
+    ]
+  },
+  {
+    "id": "S036",
+    "label": "chills",
+    "description": "Feeling cold with shivering.",
+    "synonyms": ["thandi", "kulir (Tamil)", "shivering"],
+    "system": "general",
+    "specialists": ["general physician", "infectious disease specialist"],
+    "recommended_tests": [
+      {"test": "Complete blood count", "reason": "Check for infection", "source": "clinical_guideline"},
+      {"test": "Blood culture", "reason": "Detect sepsis", "source": "SCCM_guideline"}
+    ]
+  },
+  {
+    "id": "S037",
+    "label": "paleness",
+    "description": "Unusually pale skin.",
+    "synonyms": ["pandura", "pandu", "veluppu (Tamil)"],
+    "system": "general",
+    "specialists": ["hematologist", "general physician"],
+    "recommended_tests": [
+      {"test": "Complete blood count", "reason": "Diagnose anemia", "source": "WHO_guideline"},
+      {"test": "Peripheral smear", "reason": "Assess RBC morphology", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S038",
+    "label": "easy bruising",
+    "description": "Tendency to bruise easily.",
+    "synonyms": ["asaan neel", "sulu noi (Tamil)"],
+    "system": "hematologic",
+    "specialists": ["hematologist"],
+    "recommended_tests": [
+      {"test": "Platelet count", "reason": "Rule out thrombocytopenia", "source": "clinical_guideline"},
+      {"test": "PT/INR, aPTT", "reason": "Assess coagulation", "source": "ISTH_guideline"}
+    ]
+  },
+  {
+    "id": "S039",
+    "label": "nosebleeds",
+    "description": "Bleeding from the nose.",
+    "synonyms": ["nakseer", "mooku ratham (Tamil)"],
+    "system": "ENT",
+    "specialists": ["ENT specialist", "hematologist"],
+    "recommended_tests": [
+      {"test": "Complete blood count", "reason": "Check platelet count", "source": "clinical_guideline"},
+      {"test": "PT/INR", "reason": "Rule out coagulopathy", "source": "local_guideline"}
+    ]
+  },
+  {
+    "id": "S040",
+    "label": "hoarseness",
+    "description": "Rough or harsh voice.",
+    "synonyms": ["awaz ka bhaari hona", "kural karkarappu (Tamil)"],
+    "system": "ENT",
+    "specialists": ["ENT specialist"],
+    "recommended_tests": [
+      {"test": "Laryngoscopy", "reason": "Visualize vocal cords", "source": "clinical_guideline"},
+      {"test": "Thyroid function test", "reason": "Rule out hypothyroidism", "source": "ATA_guideline"}
+    ]
+  },
+  {
+    "id": "S041",
+    "label": "chest tightness",
+    "description": "Feeling of constriction in the chest.",
+    "synonyms": ["seene ka jakdan", "nenju irukku (Tamil)"],
+    "system": "cardiac",
+    "specialists": ["cardiologist"],
+    "recommended_tests": [
+      {"test": "ECG", "reason": "Detect ischemia", "source": "AHA_guideline"},
+      {"test": "Stress test", "reason": "Assess exertional symptoms", "source": "ESC_guideline"}
+    ]
+  },
+  {
+    "id": "S042",
+    "label": "rapid breathing",
+    "description": "Fast or labored breathing.",
+    "synonyms": ["tez saans", "veka mucchu (Tamil)"],
+    "system": "respiratory",
+    "specialists": ["pulmonologist"],
+    "recommended_tests": [
+      {"test": "Arterial blood gas (ABG)", "reason": "Assess acid-base and oxygenation", "source": "BTS_guideline"},
+      {"test": "D-dimer", "reason": "Rule out pulmonary embolism", "source": "ESC_guideline"}
+    ]
+  },
+  {
+    "id": "S043",
+    "label": "bloating",
+    "description": "Feeling of fullness in the abdomen.",
+    "synonyms": ["gas", "vayiru veekkam (Tamil)"],
+    "system": "GI",
+    "specialists": ["gastroenterologist"],
+    "recommended_tests": [
+      {"test": "Abdominal X-ray", "reason": "Detect distension or obstruction", "source": "clinical_guideline"},
+      {"test": "H. pylori test", "reason": "Rule out infection", "source": "Maastricht_guideline"}
+    ]
+  },
+  {
+    "id": "S044",
+    "label": "indigestion",
+    "description": "Discomfort or pain during digestion.",
+    "synonyms": ["apach", "jeeranam illai (Tamil)"],
+    "system": "GI",
+    "specialists": ["gastroenterologist"],
+    "recommended_tests": [
+      {"test": "Upper GI endoscopy", "reason": "Assess for ulcer or gastritis", "source": "AGA_guideline"}
+    ]
+  },
+  {
+    "id": "S045",
+    "label": "rectal bleeding",
+    "description": "Blood in stools or from rectum.",
+    "synonyms": ["mal mein khoon", "malam ratham (Tamil)"],
+    "system": "GI",
+    "specialists": ["gastroenterologist", "colorectal surgeon"],
+    "recommended_tests": [
+      {"test": "Colonoscopy", "reason": "Visualize lower GI tract", "source": "ASGE_guideline"},
+      {"test": "Complete blood count", "reason": "Assess anemia", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S046",
+    "label": "flatulence",
+    "description": "Excessive gas in the digestive tract.",
+    "synonyms": ["vayu", "kaatru (Tamil)"],
+    "system": "GI",
+    "specialists": ["gastroenterologist"],
+    "recommended_tests": [
+      {"test": "Hydrogen breath test", "reason": "Diagnose SIBO or lactose intolerance", "source": "AGA_guideline"}
+    ]
+  },
+  {
+    "id": "S047",
+    "label": "thirst",
+    "description": "Strong desire to drink.",
+    "synonyms": ["pyaas", "taagam (Tamil)"],
+    "system": "general",
+    "specialists": ["endocrinologist"],
+    "recommended_tests": [
+      {"test": "Blood glucose", "reason": "Rule out diabetes mellitus", "source": "ADA_guideline"},
+      {"test": "Serum osmolality", "reason": "Assess for diabetes insipidus", "source": "Endocrine_guideline"}
+    ]
+  },
+  {
+    "id": "S048",
+    "label": "increased hunger",
+    "description": "Unusual increase in appetite.",
+    "synonyms": ["bhookh badhna", "pasi adhikam (Tamil)"],
+    "system": "general",
+    "specialists": ["endocrinologist"],
+    "recommended_tests": [
+      {"test": "Blood glucose/HbA1c", "reason": "Detect diabetes", "source": "ADA_guideline"},
+      {"test": "Thyroid function test", "reason": "Rule out hyperthyroidism", "source": "ATA_guideline"}
+    ]
+  },
+  {
+    "id": "S049",
+    "label": "sweaty palms",
+    "description": "Excessive sweating of the hands.",
+    "synonyms": ["hathon ka pasina", "kai viyarvai (Tamil)"],
+    "system": "general",
+    "specialists": ["dermatologist", "endocrinologist"],
+    "recommended_tests": [
+      {"test": "Thyroid function test", "reason": "Rule out hyperthyroidism", "source": "ATA_guideline"}
+    ]
+  },
+  {
+    "id": "S050",
+    "label": "skin dryness",
+    "description": "Dry or flaky skin.",
+    "synonyms": ["sukhi twacha", "charma varatchi (Tamil)"],
+    "system": "dermatologic",
+    "specialists": ["dermatologist"],
+    "recommended_tests": [
+      {"test": "Thyroid function test", "reason": "Rule out hypothyroidism", "source": "ATA_guideline"},
+      {"test": "Blood glucose", "reason": "Assess diabetes control", "source": "ADA_guideline"}
+    ]
+  },
+  {
+    "id": "S051",
+    "label": "leg cramps",
+    "description": "Painful muscle contractions in legs.",
+    "synonyms": ["pairon mein khichav", "kaal thasai pidippu (Tamil)"],
+    "system": "musculoskeletal",
+    "specialists": ["orthopedic surgeon", "neurologist"],
+    "recommended_tests": [
+      {"test": "Serum electrolytes (Mg, K, Ca)", "reason": "Detect imbalance", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S052",
+    "label": "stiff neck",
+    "description": "Difficulty moving the neck.",
+    "synonyms": ["gardaan ka jakdan", "kuzhu irukku (Tamil)"],
+    "system": "musculoskeletal",
+    "specialists": ["orthopedic surgeon", "neurologist"],
+    "recommended_tests": [
+      {"test": "X-ray cervical spine", "reason": "Assess for spondylosis", "source": "clinical_guideline"},
+      {"test": "MRI (if red flags)", "reason": "Rule out meningitis or disc prolapse", "source": "IDSA_guideline"}
+    ]
+  },
+  {
+    "id": "S053",
+    "label": "memory loss",
+    "description": "Difficulty remembering things.",
+    "synonyms": ["yaadash kamzori", "ninaivu izhappu (Tamil)"],
+    "system": "neurologic",
+    "specialists": ["neurologist", "geriatrician"],
+    "recommended_tests": [
+      {"test": "MMSE / MoCA", "reason": "Screen for cognitive impairment", "source": "clinical_guideline"},
+      {"test": "MRI brain", "reason": "Assess for dementia or stroke", "source": "AAN_guideline"},
+      {"test": "Vitamin B12, Thyroid", "reason": "Rule out reversible causes", "source": "local_guideline"}
+    ]
+  },
+  {
+    "id": "S054",
+    "label": "seizures",
+    "description": "Uncontrolled convulsions or fits.",
+    "synonyms": ["daura", "valippu (Tamil)"],
+    "system": "neurologic",
+    "specialists": ["neurologist"],
+    "recommended_tests": [
+      {"test": "EEG", "reason": "Detect epileptiform activity", "source": "ILAE_guideline"},
+      {"test": "MRI brain", "reason": "Identify structural cause", "source": "AAN_guideline"},
+      {"test": "Electrolytes, Glucose", "reason": "Rule out metabolic triggers", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S055",
+    "label": "tingling sensation",
+    "description": "Prickling or pins-and-needles feeling.",
+    "synonyms": ["jhanjhanahat", "karukaruppu (Tamil)"],
+    "system": "neurologic",
+    "specialists": ["neurologist"],
+    "recommended_tests": [
+      {"test": "Nerve conduction study", "reason": "Diagnose neuropathy", "source": "AAN_guideline"},
+      {"test": "Blood glucose", "reason": "Rule out diabetes", "source": "ADA_guideline"}
+    ]
+  },
+  {
+    "id": "S056",
+    "label": "double vision",
+    "description": "Seeing two images of a single object.",
+    "synonyms": ["do nazar", "irattai parvai (Tamil)"],
+    "system": "ophthalmic",
+    "specialists": ["ophthalmologist", "neurologist"],
+    "recommended_tests": [
+      {"test": "MRI brain/orbits", "reason": "Rule out cranial nerve palsy or MS", "source": "AAN_guideline"},
+      {"test": "Blood glucose", "reason": "Assess diabetes", "source": "ADA_guideline"}
+    ]
+  },
+  {
+    "id": "S057",
+    "label": "eye redness",
+    "description": "Red or bloodshot eyes.",
+    "synonyms": ["aankh laal hona", "kan sivappu (Tamil)"],
+    "system": "ophthalmic",
+    "specialists": ["ophthalmologist"],
+    "recommended_tests": [
+      {"test": "Slit lamp examination", "reason": "Assess anterior segment", "source": "clinical_guideline"},
+      {"test": "Intraocular pressure", "reason": "Rule out glaucoma", "source": "AAO_guideline"}
+    ]
+  },
+  {
+    "id": "S058",
+    "label": "hearing loss",
+    "description": "Reduced ability to hear.",
+    "synonyms": ["sunai na dena", "kettu izhappu (Tamil)"],
+    "system": "ENT",
+    "specialists": ["ENT specialist", "audiologist"],
+    "recommended_tests": [
+      {"test": "Pure tone audiometry", "reason": "Quantify hearing loss", "source": "clinical_guideline"},
+      {"test": "Tympanometry", "reason": "Assess middle ear function", "source": "local_guideline"}
+    ]
+  },
+  {
+    "id": "S059",
+    "label": "swollen lymph nodes",
+    "description": "Enlarged lymph glands.",
+    "synonyms": ["gandh soojan", "nodi veekkam (Tamil)"],
+    "system": "general",
+    "specialists": ["hematologist", "infectious disease specialist"],
+    "recommended_tests": [
+      {"test": "Complete blood count", "reason": "Detect infection or leukemia", "source": "clinical_guideline"},
+      {"test": "FNAC/biopsy", "reason": "Histological diagnosis", "source": "NCCN_guideline"},
+      {"test": "Chest X-ray", "reason": "Rule out TB or sarcoidosis", "source": "WHO_guideline"}
+    ]
+  },
+  {
+    "id": "S060",
+    "label": "blood in sputum",
+    "description": "Blood coughed up from lungs.",
+    "synonyms": ["khansi mein khoon", "irumal ratham (Tamil)"],
+    "system": "respiratory",
+    "specialists": ["pulmonologist"],
+    "recommended_tests": [
+      {"test": "Chest X-ray/CT", "reason": "Identify mass, TB, or bronchiectasis", "source": "Fleischner_guideline"},
+      {"test": "Sputum AFB", "reason": "Rule out tuberculosis", "source": "WHO_guideline"},
+      {"test": "Bronchoscopy", "reason": "Direct visualization and biopsy", "source": "ATS_guideline"}
+    ]
+  },
+  {
+    "id": "S061",
+    "label": "cyanosis",
+    "description": "Bluish discoloration of skin.",
+    "synonyms": ["neela padna", "neela charmam (Tamil)"],
+    "system": "general",
+    "specialists": ["pulmonologist", "cardiologist"],
+    "recommended_tests": [
+      {"test": "Pulse oximetry/ABG", "reason": "Confirm hypoxia", "source": "BTS_guideline"},
+      {"test": "Echocardiogram", "reason": "Rule out congenital heart disease", "source": "AHA_guideline"}
+    ]
+  },
+  {
+    "id": "S062",
+    "label": "confusion",
+    "description": "Disorientation or unclear thinking.",
+    "synonyms": ["uljhan", "kuzhappam (Tamil)"],
+    "system": "neurologic",
+    "specialists": ["neurologist", "geriatrician"],
+    "recommended_tests": [
+      {"test": "CT brain", "reason": "Rule out stroke or bleed", "source": "AHA_guideline"},
+      {"test": "Electrolytes, Glucose", "reason": "Detect metabolic cause", "source": "clinical_guideline"},
+      {"test": "Vitamin B12", "reason": "Assess deficiency", "source": "local_guideline"}
+    ]
+  },
+  {
+    "id": "S063",
+    "label": "vision loss",
+    "description": "Partial or complete loss of sight.",
+    "synonyms": ["nazar kamzori", "parvai izhappu (Tamil)"],
+    "system": "ophthalmic",
+    "specialists": ["ophthalmologist"],
+    "recommended_tests": [
+      {"test": "Visual field testing", "reason": "Map field defects", "source": "AAO_guideline"},
+      {"test": "MRI brain/orbits", "reason": "Rule out optic nerve or brain lesion", "source": "AAN_guideline"}
+    ]
+  },
+  {
+    "id": "S064",
+    "label": "fainting",
+    "description": "Temporary loss of consciousness.",
+    "synonyms": ["behosh hona", "mayakkam (Tamil)", "syncope"],
+    "system": "neurologic",
+    "specialists": ["cardiologist", "neurologist"],
+    "recommended_tests": [
+      {"test": "ECG", "reason": "Detect arrhythmia", "source": "ESC_guideline"},
+      {"test": "Tilt table test", "reason": "Diagnose vasovagal syncope", "source": "AHA_guideline"},
+      {"test": "Blood glucose", "reason": "Rule out hypoglycemia", "source": "ADA_guideline"}
+    ]
+  },
+  {
+    "id": "S066",
+    "label": "jaundice",
+    "description": "Yellowing of skin or eyes.",
+    "synonyms": ["piliya", "manjal kamalai (Tamil)"],
+    "system": "hepatic",
+    "specialists": ["gastroenterologist", "hepatologist"],
+    "recommended_tests": [
+      {"test": "Liver function tests", "reason": "Assess bilirubin and enzymes", "source": "AASLD_guideline"},
+      {"test": "Ultrasound abdomen", "reason": "Rule out obstruction", "source": "clinical_guideline"},
+      {"test": "Viral hepatitis serology", "reason": "Detect infection", "source": "WHO_guideline"}
+    ]
+  },
+  {
+    "id": "S067",
+    "label": "abdominal swelling",
+    "description": "Enlarged abdomen due to fluid or mass.",
+    "synonyms": ["pet ka soojan", "vayiru veekkam (Tamil)"],
+    "system": "GI",
+    "specialists": ["gastroenterologist", "general surgeon"],
+    "recommended_tests": [
+      {"test": "Ultrasound abdomen", "reason": "Detect ascites, mass, or organomegaly", "source": "clinical_guideline"},
+      {"test": "Ascitic fluid analysis", "reason": "Differentiate transudate vs exudate", "source": "AASLD_guideline"}
+    ]
+  },
+  {
+    "id": "S068",
+    "label": "blood in urine",
+    "description": "Blood present in urine.",
+    "synonyms": ["peshab mein khoon", "siruneer ratham (Tamil)"],
+    "system": "urinary",
+    "specialists": ["urologist", "nephrologist"],
+    "recommended_tests": [
+      {"test": "Urine routine & microscopy", "reason": "Confirm hematuria", "source": "clinical_guideline"},
+      {"test": "Ultrasound KUB", "reason": "Assess kidneys, bladder, stones", "source": "EAU_guideline"},
+      {"test": "CT urography", "reason": "Rule out malignancy", "source": "AUA_guideline"}
+    ]
+  },
+  {
+    "id": "S069",
+    "label": "frequent urination",
+    "description": "Need to urinate often.",
+    "synonyms": ["bar bar peshab", "adi adi siruneer (Tamil)"],
+    "system": "urinary",
+    "specialists": ["urologist"],
+    "recommended_tests": [
+      {"test": "Urine routine", "reason": "Rule out infection", "source": "IDSA_guideline"},
+      {"test": "Blood glucose/HbA1c", "reason": "Detect diabetes", "source": "ADA_guideline"}
+    ]
+  },
+  {
+    "id": "S070",
+    "label": "painful urination",
+    "description": "Pain or burning during urination.",
+    "synonyms": ["peshab mein jalan", "siruneer erichal (Tamil)"],
+    "system": "urinary",
+    "specialists": ["urologist"],
+    "recommended_tests": [
+      {"test": "Urine culture", "reason": "Identify UTI pathogen", "source": "IDSA_guideline"},
+      {"test": "Ultrasound KUB", "reason": "Rule out stones", "source": "EAU_guideline"}
+    ]
+  },
+  {
+    "id": "S071",
+    "label": "swollen ankles",
+    "description": "Swelling around the ankles.",
+    "synonyms": ["pairon ka soojan", "kaal veekkam (Tamil)"],
+    "system": "general",
+    "specialists": ["cardiologist", "nephrologist"],
+    "recommended_tests": [
+      {"test": "Echocardiogram", "reason": "Assess heart failure", "source": "ESC_guideline"},
+      {"test": "Urine protein/creatinine ratio", "reason": "Detect nephrotic syndrome", "source": "KDIGO_guideline"}
+    ]
+  },
+  {
+    "id": "S072",
+    "label": "chronic cough",
+    "description": "Persistent cough lasting weeks.",
+    "synonyms": ["lambi khansi", "nilaikkum irumal (Tamil)"],
+    "system": "respiratory",
+    "specialists": ["pulmonologist"],
+    "recommended_tests": [
+      {"test": "Chest X-ray", "reason": "Rule out TB, cancer, ILD", "source": "Fleischner_guideline"},
+      {"test": "Spirometry", "reason": "Assess for asthma/COPD", "source": "GOLD_guideline"}
+    ]
+  },
+  {
+    "id": "S074",
+    "label": "chest discomfort",
+    "description": "Uncomfortable feeling in the chest.",
+    "synonyms": ["seene mein takleef", "nenju asoukam (Tamil)"],
+    "system": "cardiac",
+    "specialists": ["cardiologist"],
+    "recommended_tests": [
+      {"test": "ECG", "reason": "Detect ischemia", "source": "AHA_guideline"},
+      {"test": "Troponin", "reason": "Rule out ACS", "source": "ESC_guideline"}
+    ]
+  },
+  {
+    "id": "S075",
+    "label": "irregular heartbeat",
+    "description": "Abnormal heart rhythm or skipped beats.",
+    "synonyms": ["anayam dil ki dharkan", "idaya tudippu aniyamam (Tamil)", "arrhythmia"],
+    "system": "cardiac",
+    "specialists": ["cardiologist"],
+    "recommended_tests": [
+      {"test": "ECG", "reason": "Identify arrhythmia", "source": "AHA_guideline"},
+      {"test": "Holter monitor", "reason": "Capture intermittent events", "source": "ESC_guideline"}
+    ]
+  },
+  {
+    "id": "S076",
+    "label": "abdominal distension",
+    "description": "Swollen or enlarged abdomen.",
+    "synonyms": ["pet ka phoolna", "vayiru veengu (Tamil)", "abdominal swelling"],
+    "system": "GI",
+    "specialists": ["gastroenterologist"],
+    "recommended_tests": [
+      {"test": "Abdominal X-ray", "reason": "Detect obstruction", "source": "clinical_guideline"},
+      {"test": "Ultrasound", "reason": "Assess ascites or mass", "source": "local_guideline"}
+    ]
+  },
+  {
+    "id": "S077",
+    "label": "dysphagia",
+    "description": "Difficulty swallowing food or liquids.",
+    "synonyms": ["nigalna mushkil", "vizhungu kastam (Tamil)", "swallowing difficulty"],
+    "system": "GI",
+    "specialists": ["gastroenterologist", "ENT"],
+    "recommended_tests": [
+      {"test": "Upper GI endoscopy", "reason": "Visualize esophagus", "source": "ASGE_guideline"},
+      {"test": "Barium swallow", "reason": "Assess motility", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S078",
+    "label": "urinary incontinence",
+    "description": "Involuntary leakage of urine.",
+    "synonyms": ["peshab ka rukhna", "siruneer adangamai (Tamil)", "bladder leakage"],
+    "system": "urinary",
+    "specialists": ["urologist", "gynecologist"],
+    "recommended_tests": [
+      {"test": "Urine routine", "reason": "Rule out infection", "source": "IDSA_guideline"},
+      {"test": "Urodynamic study", "reason": "Assess bladder function", "source": "ICS_guideline"}
+    ]
+  },
+  {
+    "id": "S079",
+    "label": "dark urine",
+    "description": "Unusually dark-colored urine.",
+    "synonyms": ["gehra peshab", "irutta siruneer (Tamil)", "dark-colored urine"],
+    "system": "urinary",
+    "specialists": ["nephrologist"],
+    "recommended_tests": [
+      {"test": "Liver function tests", "reason": "Rule out bilirubinuria", "source": "AASLD_guideline"},
+      {"test": "Urine routine", "reason": "Detect hematuria or infection", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S080",
+    "label": "flank pain",
+    "description": "Pain in the side of the body near the kidneys.",
+    "synonyms": ["kamar ka dard", "iduppu vali (Tamil)", "kidney pain"],
+    "system": "renal",
+    "specialists": ["urologist", "nephrologist"],
+    "recommended_tests": [
+      {"test": "Ultrasound KUB", "reason": "Detect stones or hydronephrosis", "source": "EAU_guideline"},
+      {"test": "Urine routine", "reason": "Check for hematuria", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S081",
+    "label": "edema in legs",
+    "description": "Swelling in the legs due to fluid buildup.",
+    "synonyms": ["pairon ki soojan", "kaal veekkam (Tamil)", "leg swelling"],
+    "system": "general",
+    "specialists": ["cardiologist", "nephrologist"],
+    "recommended_tests": [
+      {"test": "Echocardiogram", "reason": "Assess cardiac function", "source": "ESC_guideline"},
+      {"test": "Serum albumin", "reason": "Detect hypoalbuminemia", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S082",
+    "label": "hot flashes",
+    "description": "Sudden feeling of heat, often with sweating.",
+    "synonyms": ["garam lahren", "veedu (Tamil)", "menopause flushes"],
+    "system": "endocrine",
+    "specialists": ["gynecologist", "endocrinologist"],
+    "recommended_tests": [
+      {"test": "FSH, LH", "reason": "Confirm menopause", "source": "NAMS_guideline"},
+      {"test": "Thyroid function test", "reason": "Rule out hyperthyroidism", "source": "ATA_guideline"}
+    ]
+  },
+  {
+    "id": "S083",
+    "label": "mood swings",
+    "description": "Rapid changes in emotional state.",
+    "synonyms": ["mood ka utaar-chadhaav", "mananilai maruthal (Tamil)", "emotional instability"],
+    "system": "mental health",
+    "specialists": ["psychiatrist"],
+    "recommended_tests": [
+      {"test": "Thyroid function test", "reason": "Rule out thyroid disorder", "source": "ATA_guideline"}
+    ]
+  },
+  {
+    "id": "S084",
+    "label": "irritability",
+    "description": "Easily becoming annoyed or angry.",
+    "synonyms": ["chirchira pan", "erichal (Tamil)", "irritation"],
+    "system": "mental health",
+    "specialists": ["psychiatrist"],
+    "recommended_tests": [
+      {"test": "Thyroid function test", "reason": "Rule out hyperthyroidism", "source": "ATA_guideline"}
+    ]
+  },
+  {
+    "id": "S085",
+    "label": "panic attacks",
+    "description": "Sudden episodes of intense fear or discomfort.",
+    "synonyms": ["ghabrahat", "payam (Tamil)", "anxiety attack"],
+    "system": "mental health",
+    "specialists": ["psychiatrist"],
+    "recommended_tests": [
+      {"test": "ECG", "reason": "Rule out cardiac cause", "source": "AHA_guideline"},
+      {"test": "Thyroid function test", "reason": "Assess hyperthyroidism", "source": "ATA_guideline"}
+    ]
+  },
+  {
+    "id": "S086",
+    "label": "skin peeling",
+    "description": "Flaking or shedding of the outer skin layer.",
+    "synonyms": ["twacha ka chhilna", "charma urithal (Tamil)", "desquamation"],
+    "system": "dermatologic",
+    "specialists": ["dermatologist"],
+    "recommended_tests": [
+      {"test": "Skin biopsy", "reason": "Diagnose exfoliative dermatitis or SJS", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S087",
+    "label": "acne",
+    "description": "Pimples or inflamed skin pores.",
+    "synonyms": ["muhase", "mukaparu (Tamil)", "pimples"],
+    "system": "dermatologic",
+    "specialists": ["dermatologist"],
+    "recommended_tests": [
+      {"test": "Hormonal profile (testosterone, DHEA-S)", "reason": "Assess PCOS or androgen excess", "source": "Endocrine_guideline"}
+    ]
+  },
+  {
+    "id": "S088",
+    "label": "joint swelling",
+    "description": "Enlargement or puffiness around joints.",
+    "synonyms": ["jodon ki soojan", "mootu veekkam (Tamil)", "joint edema"],
+    "system": "musculoskeletal",
+    "specialists": ["rheumatologist"],
+    "recommended_tests": [
+      {"test": "Joint aspiration", "reason": "Analyze synovial fluid", "source": "EULAR_guideline"},
+      {"test": "ESR/CRP", "reason": "Assess inflammation", "source": "ACR_guideline"}
+    ]
+  },
+  {
+    "id": "S089",
+    "label": "muscle weakness",
+    "description": "Reduced strength in muscles.",
+    "synonyms": ["muscle kamzori", "thasai paalam (Tamil)", "myasthenia"],
+    "system": "musculoskeletal",
+    "specialists": ["neurologist"],
+    "recommended_tests": [
+      {"test": "Creatine kinase", "reason": "Detect myopathy", "source": "clinical_guideline"},
+      {"test": "EMG/NCS", "reason": "Diagnose myasthenia or neuropathy", "source": "AAN_guideline"}
+    ]
+  },
+  {
+    "id": "S090",
+    "label": "speech difficulty",
+    "description": "Trouble speaking or forming words.",
+    "synonyms": ["bolne mein dikkat", "pesal kastam (Tamil)", "dysarthria"],
+    "system": "neurologic",
+    "specialists": ["neurologist", "speech therapist"],
+    "recommended_tests": [
+      {"test": "MRI brain", "reason": "Rule out stroke or tumor", "source": "AHA_guideline"}
+    ]
+  },
+  {
+    "id": "S091",
+    "label": "balance problems",
+    "description": "Difficulty maintaining balance or coordination.",
+    "synonyms": ["santulan kamzori", "samanilai kastam (Tamil)", "ataxia"],
+    "system": "neurologic",
+    "specialists": ["neurologist"],
+    "recommended_tests": [
+      {"test": "MRI brain", "reason": "Assess cerebellum", "source": "AAN_guideline"}
+    ]
+  },
+  {
+    "id": "S092",
+    "label": "eye pain",
+    "description": "Pain or discomfort in the eyes.",
+    "synonyms": ["aankh ka dard", "kan vali (Tamil)", "ocular pain"],
+    "system": "ophthalmic",
+    "specialists": ["ophthalmologist"],
+    "recommended_tests": [
+      {"test": "Slit lamp exam", "reason": "Assess cornea and anterior chamber", "source": "AAO_guideline"},
+      {"test": "Intraocular pressure", "reason": "Rule out glaucoma", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S093",
+    "label": "floaters",
+    "description": "Spots or specks in the field of vision.",
+    "synonyms": ["aankh mein chhote daag", "parvai puli (Tamil)", "visual floaters"],
+    "system": "ophthalmic",
+    "specialists": ["ophthalmologist"],
+    "recommended_tests": [
+      {"test": "Dilated fundus exam", "reason": "Rule out retinal tear/detachment", "source": "AAO_guideline"}
+    ]
+  },
+  {
+    "id": "S094",
+    "label": "sneezing",
+    "description": "Sudden, involuntary expulsion of air through the nose.",
+    "synonyms": ["chheenk", "tummal (Tamil)", "sneeze"],
+    "system": "respiratory",
+    "specialists": ["allergist", "ENT"],
+    "recommended_tests": [
+      {"test": "Skin prick test", "reason": "Identify allergens", "source": "ARIA_guideline"}
+    ]
+  },
+  {
+    "id": "S095",
+    "label": "runny nose",
+    "description": "Excessive nasal discharge.",
+    "synonyms": ["naak behna", "mooku oli (Tamil)", "rhinorrhea"],
+    "system": "respiratory",
+    "specialists": ["ENT specialist", "allergist"],
+    "recommended_tests": [
+      {"test": "Nasal endoscopy", "reason": "Assess for polyps or sinusitis", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S096",
+    "label": "gum swelling",
+    "description": "Enlarged or inflamed gums.",
+    "synonyms": ["masudon ki soojan", "oottu veekkam (Tamil)", "gingival swelling"],
+    "system": "dental",
+    "specialists": ["dentist", "periodontist"],
+    "recommended_tests": [
+      {"test": "Dental X-ray", "reason": "Assess bone loss", "source": "AAP_guideline"}
+    ]
+  },
+  {
+    "id": "S097",
+    "label": "bad breath",
+    "description": "Unpleasant odor from the mouth.",
+    "synonyms": ["muh ki badbu", "vaai natham (Tamil)", "halitosis"],
+    "system": "dental",
+    "specialists": ["dentist"],
+    "recommended_tests": [
+      {"test": "Oral examination", "reason": "Detect periodontal disease", "source": "clinical_guideline"}
+    ]
+  },
+  {
+    "id": "S098",
+    "label": "menstrual pain",
+    "description": "Pain or cramps during menstruation.",
+    "synonyms": ["maasik dard", "maathavidaai vali (Tamil)", "dysmenorrhea"],
+    "system": "gynecologic",
+    "specialists": ["gynecologist"],
+    "recommended_tests": [
+      {"test": "Pelvic ultrasound", "reason": "Rule out endometriosis or fibroids", "source": "ACOG_guideline"}
+    ]
+  },
+  {
+    "id": "S099",
+    "label": "vaginal discharge",
+    "description": "Abnormal discharge from the vagina.",
+    "synonyms": ["yoni sraav", "yoni veeli (Tamil)", "leukorrhea"],
+    "system": "gynecologic",
+    "specialists": ["gynecologist"],
+    "recommended_tests": [
+      {"test": "High vaginal swab", "reason": "Detect infection (BV, candida, trichomonas)", "source": "CDC_guideline"},
+      {"test": "Pap smear", "reason": "Screen for cervical pathology", "source": "ACOG_guideline"}
+    ]
+  }
+]
