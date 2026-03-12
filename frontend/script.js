@@ -3,8 +3,12 @@
 // -------------------------------
 
 /* --------- Config --------- */
-const BACKEND_JSON_URL = "http://127.0.0.1:8000/predict"; // Try POST JSON first
-const BACKEND_GET_URL = "http://127.0.0.1:8000/predict";  // fallback GET
+// Auto-detect environment: use local if on localhost, otherwise placeholder (user will update)
+const IS_LOCAL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+const BACKEND_BASE = IS_LOCAL ? "http://127.0.0.1:8000" : "https://ai-health-assistant-rry0.onrender.com";
+
+const BACKEND_JSON_URL = `${BACKEND_BASE}/predict`;
+const BACKEND_GET_URL = `${BACKEND_BASE}/predict`;
 const OVERPASS_API = "https://overpass-api.de/api/interpreter";
 const NEARBY_RADIUS = 5000; // meters
 const MAX_DOCTORS = 10;
@@ -147,7 +151,7 @@ async function changeLanguage() {
     if (document.getElementById("status")) document.getElementById("status").innerText = "Translating interface (Please wait 5-10 seconds)...";
 
     try {
-        let res = await fetch("http://127.0.0.1:8000/translate", {
+        let res = await fetch(`${BACKEND_BASE}/translate`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ texts: toTranslate, lang: lang })
