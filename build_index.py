@@ -4,11 +4,13 @@ import faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
+import os
+os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
 ROOT = os.path.dirname(__file__)
 CONCEPTS = os.path.join(ROOT, "data", "concepts.jsonl")
 OUT = os.path.join(ROOT, "models", "faiss_index.bin")
 
-MODEL = "intfloat/multilingual-e5-base"
+MODEL = "intfloat/multilingual-e5-small"
 
 print("📌 Loading model:", MODEL)
 model = SentenceTransformer(MODEL)

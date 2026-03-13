@@ -60,7 +60,7 @@ INDEX = os.path.join(ROOT, "models", "faiss_index.bin")
 # -------- Models (lighter defaults for low-RAM machines) --------
 # Use the embedding model that matches the prebuilt FAISS indexes (768-d).
 # This model is larger but required so the index and query dimensions align.
-EMB_MODEL = "intfloat/multilingual-e5-base"
+EMB_MODEL = "intfloat/multilingual-e5-small"
 # Keep the NLI model optional (large and may increase memory). If you have RAM, set a proper NLI model.
 NLI_MODEL = None  # e.g. 'joeddav/xlm-roberta-large-xnli' (heavy)
 
