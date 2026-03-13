@@ -152,51 +152,32 @@ def _embed(texts: List[str]) -> np.ndarray:
     vecs = enc.encode(texts, normalize_embeddings=True, convert_to_numpy=True)
     return vecs.astype("float32")
 
-def _retrieve(user_text: str, k: int = TOPK, debug: bool = False):
+def _retrieve(user_text: str, k: int = 100, debug: bool = False):
     idx = _load_index()
     concepts = _load_concepts()
 
     qv = _embed([user_text])
-    sims, ids = idx.search(qv, k)
-
-    coarse = []
-    seen = set()
-
-    for i, s in zip(ids[0], sims[0]):
-        if 0 <= i < len(concepts) and i not in seen:
-            coarse.append((i, float(s)))
-            seen.add(i)
+    sims, ids = idx.search(qv, min(len(concepts), k))
 
     # lexical boost
     lex_hits = _lexical_hits(user_text, concepts)
-    for i, boost in lex_hits.items():
-        if i not in seen:
-            coarse.append((i, 0.0))
+    
+    merged = []
+    seen = set()
+    for i, s in zip(ids[0], sims[0]):
+        if 0 <= i < len(concepts):
+            # FAISS IndexFlatIP with normalized inputs already returns cosine similarity
+            score = float(s) + float(lex_hits.get(i, 0.0))
+            merged.append((concepts[i], score))
             seen.add(i)
 
-    if not coarse:
-        return []
-
-    enc = _load_enc()
-    query_emb = enc.encode(user_text, convert_to_tensor=True, normalize_embeddings=True)
-
-    cand_strings = []
-    ids_order = []
-    for cid, _ in coarse:
-        c = concepts[cid]
-        cand_strings.append(f"{c.get('label','')}. {c.get('description','')}")
-        ids_order.append(cid)
-
-    cand_embs = enc.encode(cand_strings, convert_to_tensor=True, normalize_embeddings=True)
-    cos_scores = util.cos_sim(query_emb, cand_embs)[0].cpu().numpy()
-
-    merged = []
-    for cid, cos_score in zip(ids_order, cos_scores):
-        total_score = float(cos_score) + float(lex_hits.get(cid, 0.0))
-        merged.append((cid, total_score))
+    # Backup: ensure any lexical match is caught even if missed by embedding
+    for i, boost in lex_hits.items():
+        if i not in seen:
+            merged.append((concepts[i], boost))
 
     merged.sort(key=lambda x: -x[1])
-    return [(concepts[cid], score) for cid, score in merged]
+    return merged
 
 # -------------------------
 # NLI / Entailment
@@ -236,11 +217,13 @@ def infer(text: str, k: int = TOPK, threshold: float = 0.75,
 
         if STRICT_EXACT_WINS and lexical_present:
             p_e, margin = 0.999, 0.999
-        else:
+        elif NLI_MODEL is not None:
             try:
                 p_e, margin = _entailment_full(premise, hyp)
             except Exception:
                 p_e, margin = float(retr), 0.0
+        else:
+            p_e, margin = float(retr), 0.0
 
         if lexical_present or (p_e >= threshold and margin >= MARGIN_MIN):
             scored.append({

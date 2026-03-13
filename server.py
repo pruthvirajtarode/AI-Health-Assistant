@@ -256,48 +256,78 @@ def predict(req: PredictRequest):
         base["pipeline_error_import"] = pipeline_error
 
     # --- translation ---
+    # --- Optimized translation (Batching) ---
     target_lang = getattr(req, "lang", "en")
     if target_lang and target_lang != "en":
         try:
-            # handle mapping like 'hi' -> 'hi', 'mr' -> 'mr'
             translator = GoogleTranslator(source='auto', target=target_lang)
-            def translate_text(text: str) -> str:
-                if not text or not isinstance(text, str): return text
-                try: return translator.translate(text)
-                except: return text
-
-            def translate_list(lst: list) -> list:
-                if not lst: return lst
-                # try batch, fallback to individual
-                try: 
-                    return translator.translate_batch(lst)
-                except: 
-                    return [translate_text(x) for x in lst]
-
-            # Translate predictions
-            for p in base.get("predictions", []):
-                if "label" in p: p["label"] = translate_text(p["label"])
-                if "desc" in p: p["desc"] = translate_text(p["desc"])
-                if "specialists" in p and isinstance(p["specialists"], list):
-                    p["specialists"] = translate_list(p["specialists"])
-                if "recommended_tests" in p and isinstance(p["recommended_tests"], list):
-                    p["recommended_tests"] = translate_list(p["recommended_tests"])
             
-            # Translate diseases
+            # 1) Collect all translatable strings to minimize translator hits
+            all_texts = []
+            
+            # Prediction texts
+            for p in base.get("predictions", []):
+                if "label" in p: all_texts.append(p["label"])
+                if "desc" in p: all_texts.append(p["desc"])
+                if "specialists" in p and isinstance(p["specialists"], list):
+                    all_texts.extend(p["specialists"])
+                if "recommended_tests" in p and isinstance(p["recommended_tests"], list):
+                    all_texts.extend(p["recommended_tests"])
+            
+            # Disease texts
             for d in base.get("diseases", []):
-                if "label" in d: d["label"] = translate_text(d["label"])
-                if "desc" in d: d["desc"] = translate_text(d["desc"])
-                if "description" in d: d["description"] = translate_text(d["description"])
+                if "label" in d: all_texts.append(d["label"])
+                if "desc" in d: all_texts.append(d["desc"])
+                if "description" in d: all_texts.append(d["description"])
                 if "specialists" in d and isinstance(d["specialists"], list):
-                    d["specialists"] = translate_list(d["specialists"])
+                    all_texts.extend(d["specialists"])
                 if "recommended_tests" in d and isinstance(d["recommended_tests"], list):
-                    d["recommended_tests"] = translate_list(d["recommended_tests"])
-
-            # Translate triage reasons
+                    all_texts.extend(d["recommended_tests"])
+            
+            # Triage reasons
             if "triage" in base and isinstance(base["triage"], dict):
-                t = base["triage"]
-                if "reasons" in t and isinstance(t["reasons"], list):
-                    t["reasons"] = translate_list(t["reasons"])
+                t_obj = base["triage"]
+                if "reasons" in t_obj and isinstance(t_obj["reasons"], list):
+                    all_texts.extend(t_obj["reasons"])
+
+            # Remove empty strings and get unique set (maintaining order for consistency if needed, but dict mapping is better)
+            unique_texts = list(dict.fromkeys([t for t in all_texts if t and isinstance(t, str)]))
+            
+            if unique_texts:
+                # Batch translation
+                try: 
+                    translated_values = translator.translate_batch(unique_texts)
+                except:
+                    # fallback if batch fails
+                    translated_values = [translator.translate(x) for x in unique_texts]
+                
+                # Mapping dictionary
+                t_map = dict(zip(unique_texts, translated_values))
+
+                # 2) Distribute translations back
+                def get_t(s): 
+                    return t_map.get(s, s) if isinstance(s, str) else s
+                
+                def get_t_list(lst):
+                    if not lst: return lst
+                    return [get_t(x) for x in lst]
+
+                for p in base.get("predictions", []):
+                    if "label" in p: p["label"] = get_t(p["label"])
+                    if "desc" in p: p["desc"] = get_t(p["desc"])
+                    if "specialists" in p: p["specialists"] = get_t_list(p["specialists"])
+                    if "recommended_tests" in p: p["recommended_tests"] = get_t_list(p["recommended_tests"])
+                
+                for d in base.get("diseases", []):
+                    if "label" in d: d["label"] = get_t(d["label"])
+                    if "desc" in d: d["desc"] = get_t(d["desc"])
+                    if "description" in d: d["description"] = get_t(d["description"])
+                    if "specialists" in d: d["specialists"] = get_t_list(d["specialists"])
+                    if "recommended_tests" in d: d["recommended_tests"] = get_t_list(d["recommended_tests"])
+
+                if "triage" in base and isinstance(base["triage"], dict):
+                    t_obj = base["triage"]
+                    if "reasons" in t_obj: t_obj["reasons"] = get_t_list(t_obj["reasons"])
                     
         except Exception as e:
             log.error("Translation error: %s", e)
